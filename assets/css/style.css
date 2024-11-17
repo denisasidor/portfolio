@@ -516,7 +516,7 @@ main {
 
 .service-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
   gap: 20px;
 }
 
@@ -530,6 +530,25 @@ main {
 }
 
 .service-item::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.service-item-2 {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  z-index: 1;
+  grid-column: span 2; /* This makes it span across both columns */
+}
+
+.service-item-2::before {
   content: "";
   position: absolute;
   inset: 1px;
